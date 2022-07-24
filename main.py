@@ -19,12 +19,13 @@ async def on_ready():
 
 @bot.command()
 async def openai(context: Context):
-    message: Message = context.message.strip()
+    message: Message = context.message
+    message_content = str(message.content).strip()
 
     if DEBUG_MODE:
-        print(f"Reading message: {message.content}")
+        print(f"Reading message: {message_content}")
 
-    completion = openai_api.Completion.create(engine=ENGINE, prompt=message.content)
+    completion = openai_api.Completion.create(engine=ENGINE, prompt=message_content)
 
     output = completion.choices[0].text.strip()
 
