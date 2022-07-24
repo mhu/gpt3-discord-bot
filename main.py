@@ -19,9 +19,9 @@ async def on_ready():
 
 @bot.command(name="commands")
 async def print_commands(ctx: Context):
-    await ctx.send("!commands - List of commands"
-                   "!openai - Ask the bot a question"
-                   "!engine - Print the current engine")
+    await ctx.send("""!commands - List of commands
+    !openai - Ask the bot a question
+    !engine - Print the current engine""")
 
 
 @bot.command()
