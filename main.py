@@ -36,7 +36,7 @@ async def prompt(context: Context):
 
     # this will hopefully prevent the engine from continuing the prompt instead
     # of giving a response to the prompt
-    if not message_content.endswith([".", "?", "!"]):
+    if not message_content.endswith((".", "?", "!")):
         message_content += "."
 
     completion = openai_api.Completion.create(
