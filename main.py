@@ -1,9 +1,11 @@
+import os
 import discord
 import openai
 from discord import Message
 from discord.ext import commands
 from discord.ext.commands import Context
 
+DISCORD_BOT_TOKEN = os.environ.get("DISCORD_BOT_TOKEN")
 ENGINE = "text-davinci-002"
 
 intents = discord.Intents.default()
@@ -21,4 +23,4 @@ async def on_message(context: Context):
     await context.send(output)
 
 
-bot.run('token')
+bot.run(DISCORD_BOT_TOKEN)
