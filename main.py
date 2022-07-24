@@ -12,13 +12,26 @@ ENGINE = "text-davinci-002"
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user.name} with ID {bot.user.id}")
 
 
+@bot.command(name="commands")
+async def print_commands(ctx: Context):
+    await ctx.send("!commands - List of commands")
+    await ctx.send("!openai - Ask the bot a question")
+    await ctx.send("!engine - Print the current engine")
+
+
 @bot.command()
-async def openai(context: Context):
+async def engine(context: Context):
+    await context.send(f"I am using the engine \"{ENGINE}\"")
+
+
+@bot.command(name="openai", help="Ask OpenAI about something")
+async def prompt(context: Context):
     message: Message = context.message
     message_content = str(message.content).strip()
 
