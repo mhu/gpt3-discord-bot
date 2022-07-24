@@ -9,6 +9,7 @@ DISCORD_BOT_TOKEN = os.environ.get("DISCORD_BOT_TOKEN")
 ENGINE = "text-davinci-002"
 
 intents = discord.Intents.default()
+intents.message_content = True
 bot = commands.Bot(command_prefix='!openai', intents=intents)
 
 
